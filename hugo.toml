@@ -1,6 +1,5 @@
-baseURL = 'https://SyedaEasha.github.io/ali-healthcare-solutions/'o
+baseURL = 'https://SyedaEasha.github.io/ali-healthcare-solutions/'
 title = "Ali Healthcare Solutions"
-
 [params]
   phone = "+1 (800) 000-0000"     
   email = "syedaeasha15@gmail.com" 
