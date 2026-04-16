@@ -1,0 +1,7 @@
+baseURL = "https://YOURDOMAINNAME.com/"   
+title = "Ali Healthcare Solutions"
+
+[params]
+  phone = "+1 (800) 000-0000"     
+  email = "syedaeasha15@gmail.com" 
+  whatsapp = "=923130546260"            

@@ -1,0 +1,10 @@
+baseURL = "https://alihealthcaresolutions.com/"
+languageCode = "en-us"
+title = "Ali Healthcare Solutions"
+theme = ""
+
+[params]
+  description = "Supporting Home Care & NEMT Providers Across the USA"
+  phone = "+1 (800) 000-0000"
+  email = "info@alihealthcaresolutions.com"
+  whatsapp = "+10000000000"
