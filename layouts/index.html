@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ .Site.Title }}</title>
+  <title>{{ .Site.Title }} — NEMT & Home Care Experts</title>
   <meta name="description" content="{{ .Site.Params.description }}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/ali-healthcare-solutions/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
+<!-- NAV -->
 <nav class="nav" id="navbar">
   <div class="nav__inner">
     <a class="nav__logo" href="#">
@@ -20,539 +20,243 @@
       <span>Ali Healthcare <em>Solutions</em></span>
     </a>
     <ul class="nav__links">
+      <li><a href="#who-we-serve">Who We Serve</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#about">About</a></li>
       <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <a class="btn btn--nav" href="#contact">Contact Now</a>
+    <a class="btn btn--nav" href="#contact">Book a Call</a>
     <button class="nav__burger" id="burger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </div>
   <div class="nav__mobile" id="mobileMenu">
+    <a href="#who-we-serve">Who We Serve</a>
     <a href="#services">Services</a>
-    <a href="#how-it-works">How It Works</a>
-    <a href="#about">About</a>
     <a href="#reviews">Reviews</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact" class="btn btn--primary">Contact Now</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn--primary">Book a Free Consultation</a>
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero" id="hero">
-  <div class="hero__bg">
-    <div class="hero__orb hero__orb--1"></div>
-    <div class="hero__orb hero__orb--2"></div>
-    <div class="hero__grid"></div>
-  </div>
+  <div class="hero__shape hero__shape--1"></div>
+  <div class="hero__shape hero__shape--2"></div>
   <div class="container hero__inner">
-    <div class="hero__badge">🇺🇸 US Healthcare Specialists</div>
+    <div class="hero__tag">🇺🇸 United States Healthcare Support</div>
     <h1 class="hero__title">
-      Supporting <span class="hero__title-accent">Home Care</span><br/>
-      &amp; NEMT Providers<br/>
-      <span class="hero__title-outline">Across the USA</span>
+      NEMT &amp; Home Care<br/>
+      <span class="hero__accent">Business Experts</span>
     </h1>
-    <p class="hero__sub">
-      Credentialing, Billing &amp; Operational Support —<br/>
-      Done Right. So you can focus on patient care.
+    <p class="hero__sub">Licensing, Enrollment, EVV &amp; Operational Support</p>
+    <p class="hero__desc">
+      We help NEMT providers and Home Care agencies launch, stay compliant, and grow faster —
+      with expert support in Medicaid enrollment, EVV systems, billing workflows, and daily operations.
     </p>
-    <div class="hero__actions">
-      <a class="btn btn--primary btn--lg" href="#contact">Get Started</a>
-      <a class="btn btn--ghost btn--lg" href="#contact">Contact Now</a>
+    <div class="hero__btns">
+      <a class="btn btn--primary btn--lg" href="#contact">Book a Free Consultation</a>
+      <a class="btn btn--outline btn--lg" href="#services">Explore Services</a>
     </div>
-    <div class="hero__trust">
-      <div class="trust-chip">
-        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2L12.5 7.5H18L13.5 11L15.5 17L10 13.5L4.5 17L6.5 11L2 7.5H7.5L10 2Z" fill="currentColor"/></svg>
-        HIPAA-Compliant
-      </div>
-      <div class="trust-chip">
-        <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Secure Data
-      </div>
-      <div class="trust-chip">
-        <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 8h14" stroke="currentColor" stroke-width="1.5"/></svg>
-        US Healthcare Systems
-      </div>
+    <div class="hero__chips">
+      <span class="chip">✓ Medicaid Enrollment</span>
+      <span class="chip">✓ EVV Setup</span>
+      <span class="chip">✓ HIPAA-Compliant</span>
+      <span class="chip">✓ All 50 States</span>
     </div>
   </div>
 </section>
 
-<!-- ===== SERVICES ===== -->
-<section class="section section--light" id="services">
+<!-- WHO WE SERVE -->
+<section class="section" id="who-we-serve">
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag">What We Do</span>
-      <h2>Comprehensive Healthcare<br/>Support Services</h2>
-      <p>From setup to ongoing operations — we handle the admin so you don't have to.</p>
+    <div class="sec-hd">
+      <span class="sec-tag">Who We Serve</span>
+      <h2>We Support Healthcare Businesses<br/>Across the United States</h2>
     </div>
-    <div class="services__grid">
-
-      <div class="service-col">
-        <div class="service-col__header service-col__header--blue">
-          <div class="service-col__icon">🏥</div>
-          <h3>Setup Services</h3>
-        </div>
-        <ul class="service-col__list">
-          <li>
-            <div class="service-item__dot"></div>
-            <div>
-              <strong>Credentialing</strong>
-              <span>Provider verification with insurance networks</span>
-            </div>
-          </li>
-          <li>
-            <div class="service-item__dot"></div>
-            <div>
-              <strong>Medicaid Enrollment</strong>
-              <span>State enrollment &amp; re-validation support</span>
-            </div>
-          </li>
-          <li>
-            <div class="service-item__dot"></div>
-            <div>
-              <strong>Provider Onboarding</strong>
-              <span>Full setup for new agencies &amp; providers</span>
-            </div>
-          </li>
-        </ul>
+    <div class="serve__grid">
+      <div class="serve-card">
+        <div class="serve-card__icon">🚐</div>
+        <h3>NEMT Providers</h3>
+        <p>Non-Emergency Medical Transportation companies at any stage — from launch to scaling operations.</p>
       </div>
-
-      <div class="service-col">
-        <div class="service-col__header service-col__header--teal">
-          <div class="service-col__icon">⚙️</div>
-          <h3>Operational Support</h3>
-        </div>
-        <ul class="service-col__list">
-          <li>
-            <div class="service-item__dot service-item__dot--teal"></div>
-            <div>
-              <strong>Virtual Assistant</strong>
-              <span>Dedicated VA for daily administrative tasks</span>
-            </div>
-          </li>
-          <li>
-            <div class="service-item__dot service-item__dot--teal"></div>
-            <div>
-              <strong>Scheduling</strong>
-              <span>Client &amp; caregiver scheduling management</span>
-            </div>
-          </li>
-          <li>
-            <div class="service-item__dot service-item__dot--teal"></div>
-            <div>
-              <strong>Admin Support</strong>
-              <span>Documentation, compliance, reporting</span>
-            </div>
-          </li>
-        </ul>
+      <div class="serve-card">
+        <div class="serve-card__icon">🏠</div>
+        <h3>Home Care &amp; Home Health</h3>
+        <p>Home care and home health agencies needing licensing, enrollment, EVV, and billing support.</p>
       </div>
-
-      <div class="service-col">
-        <div class="service-col__header service-col__header--green">
-          <div class="service-col__icon">💰</div>
-          <h3>Revenue Services</h3>
-        </div>
-        <ul class="service-col__list">
-          <li>
-            <div class="service-item__dot service-item__dot--green"></div>
-            <div>
-              <strong>Medical Billing</strong>
-              <span>Accurate coding and claim preparation</span>
-            </div>
-          </li>
-          <li>
-            <div class="service-item__dot service-item__dot--green"></div>
-            <div>
-              <strong>Claims Submission</strong>
-              <span>Timely electronic &amp; paper claim submission</span>
-            </div>
-          </li>
-          <li>
-            <div class="service-item__dot service-item__dot--green"></div>
-            <div>
-              <strong>Payment Follow-ups</strong>
-              <span>AR management &amp; denial resolution</span>
-            </div>
-          </li>
-        </ul>
+      <div class="serve-card">
+        <div class="serve-card__icon">🚀</div>
+        <h3>Healthcare Startups</h3>
+        <p>Entrepreneurs entering the NEMT or home care space who need end-to-end business setup guidance.</p>
       </div>
-
+      <div class="serve-card">
+        <div class="serve-card__icon">📈</div>
+        <h3>Agencies Ready to Scale</h3>
+        <p>Existing agencies ready to expand, add providers, or streamline their entire workflow.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== HOW IT WORKS ===== -->
-<section class="section section--dark" id="how-it-works">
+<!-- SERVICES -->
+<section class="section section--cream" id="services">
   <div class="container">
-    <div class="section-header section-header--dark">
-      <span class="section-tag section-tag--light">The Process</span>
-      <h2>How It Works</h2>
-      <p>A simple, transparent process to get you up and running fast.</p>
+    <div class="sec-hd">
+      <span class="sec-tag">Our Services</span>
+      <h2>Everything Your Agency Needs</h2>
+      <p>Comprehensive support from day one through ongoing operations.</p>
     </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step__number">01</div>
-        <div class="step__content">
-          <h3>Free Consultation</h3>
-          <p>We start with a no-cost call to understand your agency's needs, current challenges, and goals.</p>
+
+    <!-- NEMT -->
+    <div class="svc-block">
+      <div class="svc-block__head svc-block__head--navy">
+        <span class="svc-block__icon">🚐</span>
+        <div>
+          <h3>NEMT Solutions</h3>
+          <p>Full-service support for Non-Emergency Medical Transportation providers.</p>
         </div>
-        <div class="step__arrow">→</div>
       </div>
-      <div class="step">
-        <div class="step__number">02</div>
-        <div class="step__content">
-          <h3>Document Collection</h3>
-          <p>We guide you through gathering all required documents securely via our HIPAA-compliant process.</p>
+      <div class="svc-block__items">
+        <div class="svc-item"><span class="svc-dot svc-dot--navy"></span><div><strong>NEMT Business Formation &amp; State Licensing</strong><span>Full business setup and state-specific licensing for new NEMT companies.</span></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--navy"></span><div><strong>Medicaid Provider Enrollment</strong><span>State Medicaid enrollment, credentialing, and re-validation support.</span></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--navy"></span><div><strong>Broker Registration (Modivcare, MTM, Access2Care)</strong><span>Registration with all major NEMT transportation brokers.</span></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--navy"></span><div><strong>Trip &amp; Dispatch Workflow Setup</strong><span>Systems and procedures for efficient trip scheduling and dispatch.</span></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--navy"></span><div><strong>NEMT Billing Setup &amp; Claims Support</strong><span>Complete billing workflow, claim submission, and payment follow-up.</span></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--navy"></span><div><strong>Compliance &amp; Documentation Management</strong><span>Ongoing compliance monitoring and audit-ready documentation.</span></div></div>
+      </div>
+    </div>
+
+    <!-- Home Care -->
+    <div class="svc-block">
+      <div class="svc-block__head svc-block__head--olive">
+        <span class="svc-block__icon">🏠</span>
+        <div>
+          <h3>Home Care Solutions</h3>
+          <p>End-to-end support for Home Care and Home Health agencies.</p>
         </div>
-        <div class="step__arrow">→</div>
       </div>
-      <div class="step">
-        <div class="step__number">03</div>
-        <div class="step__content">
-          <h3>Setup &amp; Processing</h3>
-          <p>Our team handles all submissions, enrollments, and system setup on your behalf.</p>
+      <div class="svc-block__items">
+        <div class="svc-item"><span class="svc-dot svc-dot--olive"></span><div><strong>Home Care Agency Licensing &amp; Setup</strong><span>State licensing, business registration, and full agency launch support.</span></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--olive"></span><div><strong>Medicaid Enrollment &amp; Credentialing</strong><span>Provider credentialing and Medicaid enrollment for home care agencies.</span></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--olive"></span><div><strong>EVV Setup — Sandata, HHAeXchange &amp; Others</strong><span>Electronic Visit Verification system setup, training, and ongoing support.</span></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--olive"></span><div><strong>Caregiver Compliance &amp; Documentation</strong><span>Background checks, credentialing files, and caregiver compliance tracking.</span></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--olive"></span><div><strong>Policy &amp; Procedure Development</strong><span>Custom policies aligned with state and federal requirements.</span></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--olive"></span><div><strong>Billing &amp; Operational Support</strong><span>Medical billing, claims management, and day-to-day operational assistance.</span></div></div>
+      </div>
+    </div>
+
+    <!-- Virtual Assistant -->
+    <div class="svc-block svc-block--va">
+      <div class="svc-block__head svc-block__head--warm">
+        <span class="svc-block__icon">💼</span>
+        <div>
+          <h3>Dedicated Virtual Assistant Services</h3>
+          <p>Reliable administrative and operational support tailored for NEMT and Home Care agencies.</p>
         </div>
-        <div class="step__arrow">→</div>
+        <div class="va-badge">Saves Time · Reduces Workload · Improves Efficiency</div>
       </div>
-      <div class="step">
-        <div class="step__number">04</div>
-        <div class="step__content">
-          <h3>Ongoing Support</h3>
-          <p>We stay with you — handling billing, admin, and updates so your operations run smoothly.</p>
-        </div>
-        <div class="step__arrow"></div>
+      <div class="svc-block__items">
+        <div class="svc-item"><span class="svc-dot svc-dot--warm"></span><div><strong>Appointment &amp; Task Scheduling</strong></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--warm"></span><div><strong>Coordination with Caregivers and Staff</strong></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--warm"></span><div><strong>Dispatch Support for NEMT Operations</strong></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--warm"></span><div><strong>Patient &amp; Client Communication</strong></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--warm"></span><div><strong>Documentation &amp; Data Management</strong></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--warm"></span><div><strong>Follow-ups with Brokers, Patients &amp; Providers</strong></div></div>
+        <div class="svc-item"><span class="svc-dot svc-dot--warm"></span><div><strong>Daily Administrative Support</strong></div></div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- ===== RESULTS ===== -->
-<section class="section section--light" id="results">
+<!-- REVIEWS -->
+<section class="section" id="reviews">
   <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Why It Matters</span>
-      <h2>Real Results for Your Agency</h2>
-    </div>
-    <div class="results__grid">
-      <div class="result-card">
-        <div class="result-card__icon">⚡</div>
-        <h3>Faster Medicaid Approvals</h3>
-        <p>Our experience with state Medicaid systems means fewer delays and faster approvals for your providers.</p>
-      </div>
-      <div class="result-card">
-        <div class="result-card__icon">✅</div>
-        <h3>Reduced Billing Errors</h3>
-        <p>Accurate coding and thorough claim review cut rejections and help you recover more revenue.</p>
-      </div>
-      <div class="result-card">
-        <div class="result-card__icon">📅</div>
-        <h3>Reliable Scheduling</h3>
-        <p>Consistent scheduling support ensures your clients and caregivers are always aligned.</p>
-      </div>
-      <div class="result-card">
-        <div class="result-card__icon">🕒</div>
-        <h3>Time Savings for Agencies</h3>
-        <p>Free up your team to focus on care delivery, not paperwork and compliance headaches.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ABOUT ===== -->
-<section class="section section--cream" id="about">
-  <div class="container about__inner">
-    <div class="about__text">
-      <span class="section-tag">About Us</span>
-      <h2>Built for Home Care<br/>&amp; NEMT Providers</h2>
-      <p>
-        Ali Healthcare Solutions was founded with one mission: to take the administrative burden off home care and
-        NEMT agencies so they can focus on what truly matters — delivering quality care.
-      </p>
-      <p>
-        We specialize exclusively in the US healthcare market, with deep knowledge of Medicaid systems,
-        credentialing requirements, EVV compliance, and billing workflows specific to home care and
-        non-emergency medical transportation providers.
-      </p>
-      <p>
-        Our team combines healthcare operations expertise with a commitment to reliability, communication,
-        and fast turnaround — so you always know where things stand.
-      </p>
-      <a class="btn btn--primary" href="#contact">Book a Free Consultation</a>
-    </div>
-    <div class="about__video">
-      <div class="video-placeholder">
-        <div class="video-placeholder__play">▶</div>
-        <p>Watch Introduction Video</p>
-        <span>Meet Ali &amp; learn about our services</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WHY CHOOSE US ===== -->
-<section class="section section--dark why" id="why">
-  <div class="container">
-    <div class="section-header section-header--dark">
-      <span class="section-tag section-tag--light">Why Choose Us</span>
-      <h2>The Ali Healthcare Difference</h2>
-    </div>
-    <div class="why__grid">
-      <div class="why-card">
-        <div class="why-card__num">01</div>
-        <h3>Specialized in Home Care &amp; NEMT</h3>
-        <p>We don't serve everyone — we serve home care and NEMT agencies specifically, so our expertise is deep and current.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-card__num">02</div>
-        <h3>Cost-Effective Solutions</h3>
-        <p>Get the quality of a full in-house team at a fraction of the cost, with no benefits, training, or overhead.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-card__num">03</div>
-        <h3>Reliable Communication</h3>
-        <p>You'll always have a point of contact. We keep you informed at every stage with clear, timely updates.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-card__num">04</div>
-        <h3>Fast Turnaround</h3>
-        <p>We work with urgency. Whether it's a credentialing deadline or a billing backlog, we move quickly.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TOOLS ===== -->
-<section class="section section--light tools-section" id="tools">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Systems We Work With</span>
-      <h2>Tools &amp; Platforms</h2>
-      <p>We're experienced with the major platforms used by home care and NEMT agencies.</p>
-    </div>
-    <div class="tools__grid">
-      <div class="tool-badge">EVV Systems</div>
-      <div class="tool-badge">Sandata</div>
-      <div class="tool-badge">HHAeXchange</div>
-      <div class="tool-badge">Therap</div>
-      <div class="tool-badge">CareVoyant</div>
-      <div class="tool-badge">TriZetto</div>
-      <div class="tool-badge">Availity</div>
-      <div class="tool-badge">CAQH</div>
-      <div class="tool-badge">PECOS</div>
-      <div class="tool-badge">Office Ally</div>
-      <div class="tool-badge">Waystar</div>
-      <div class="tool-badge">Medicaid Portals</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== REVIEWS ===== -->
-<section class="section section--cream" id="reviews">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Client Reviews</span>
+    <div class="sec-hd">
+      <span class="sec-tag">Client Reviews</span>
       <h2>What Our Clients Say</h2>
+      <p>Testimonials from the agencies we've helped launch and grow.</p>
     </div>
-    <div class="reviews__grid">
-      <div class="review-card">
-        <div class="review-card__stars">★★★★★</div>
-        <p>"Ali Healthcare Solutions helped us get Medicaid-enrolled in record time. Their knowledge of the process was impressive, and they kept us updated every step of the way. Highly recommend for any home care startup."</p>
-        <div class="review-card__author">
-          <div class="review-card__avatar">S</div>
-          <div>
-            <strong>Sarah M.</strong>
-            <span>Home Care Agency Owner, Texas</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="review-card__stars">★★★★★</div>
-        <p>"Our billing denials dropped significantly after bringing on Ali Healthcare Solutions. They're thorough, responsive, and really understand the NEMT billing landscape. Worth every penny."</p>
-        <div class="review-card__author">
-          <div class="review-card__avatar">J</div>
-          <div>
-            <strong>James T.</strong>
-            <span>NEMT Provider, Florida</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="review-card__stars">★★★★★</div>
-        <p>"As a small agency, we couldn't afford a full billing department. Ali Healthcare gave us that capacity without the overhead. Communication is excellent and results speak for themselves."</p>
-        <div class="review-card__author">
-          <div class="review-card__avatar">M</div>
-          <div>
-            <strong>Maria L.</strong>
-            <span>Home Care Director, California</span>
-          </div>
-        </div>
-      </div>
+    <div class="reviews-soon">
+      <div class="reviews-soon__star">⭐</div>
+      <h3>Reviews Coming Soon</h3>
+      <p>We're collecting testimonials from our clients. Check back soon — or be one of the first to work with us and share your experience.</p>
+      <a class="btn btn--primary" href="#contact">Be Our Next Success Story</a>
     </div>
   </div>
 </section>
 
-<!-- ===== CASE STUDY ===== -->
-<section class="section section--light case-study" id="case-study">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Case Study</span>
-      <h2>A Home Care Agency Transformed</h2>
-    </div>
-    <div class="case-study__inner">
-      <div class="case-study__challenge">
-        <h3>The Challenge</h3>
-        <p>A newly licensed home care agency in the Midwest needed Medicaid enrollment, provider credentialing for 8 caregivers, and a billing system — all within 60 days of launch.</p>
-      </div>
-      <div class="case-study__arrow">→</div>
-      <div class="case-study__solution">
-        <h3>What We Did</h3>
-        <p>We handled all Medicaid enrollment paperwork, credentialed all 8 providers simultaneously, set up their billing workflow, and processed their first claims within 45 days.</p>
-      </div>
-      <div class="case-study__arrow">→</div>
-      <div class="case-study__result">
-        <h3>The Result</h3>
-        <div class="case-study__stats">
-          <div class="stat">
-            <span class="stat__num">45</span>
-            <span class="stat__label">Days to first claim</span>
-          </div>
-          <div class="stat">
-            <span class="stat__num">98%</span>
-            <span class="stat__label">Claim acceptance rate</span>
-          </div>
-          <div class="stat">
-            <span class="stat__num">8</span>
-            <span class="stat__label">Providers credentialed</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section class="section section--cream" id="faq">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">FAQ</span>
-      <h2>Frequently Asked Questions</h2>
-    </div>
-    <div class="faq__list">
-      <details class="faq-item">
-        <summary>How long does credentialing take?</summary>
-        <div class="faq-item__body">
-          <p>Credentialing timelines vary by insurance network and state, but typically range from 60 to 120 days. We work to expedite the process by ensuring all documentation is complete and accurate at submission, reducing back-and-forth delays. We'll give you a realistic timeline estimate during your free consultation.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>Do you work with Medicaid?</summary>
-        <div class="faq-item__body">
-          <p>Yes — Medicaid enrollment and billing is one of our core specialties. We work with state Medicaid portals across the USA and understand the specific requirements for home care and NEMT Medicaid programs, including waiver programs, EVV compliance, and prior authorization workflows.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>Do you support NEMT providers?</summary>
-        <div class="faq-item__body">
-          <p>Absolutely. Non-Emergency Medical Transportation is one of our focus areas. We assist NEMT providers with Medicaid enrollment, broker credentialing (MTM, LogistiCare/Modivcare, etc.), billing, and scheduling support.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>How do you ensure HIPAA compliance?</summary>
-        <div class="faq-item__body">
-          <p>We follow strict HIPAA-compliant workflows for all data handling. This includes encrypted file transfers, secure communication channels, signed Business Associate Agreements (BAAs) with all clients, and regular staff training on privacy and security protocols. Your patients' data is always protected.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>What states do you work in?</summary>
-        <div class="faq-item__body">
-          <p>We work with home care and NEMT agencies across all 50 states. Our team is experienced with the varying Medicaid and credentialing requirements by state, so we can guide you regardless of where your agency operates.</p>
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary>How do you charge for your services?</summary>
-        <div class="faq-item__body">
-          <p>We offer flexible pricing depending on the services you need — project-based pricing for one-time setup services like credentialing, and monthly retainer options for ongoing billing and operational support. We'll provide a custom quote after your free consultation.</p>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section class="section section--dark contact-section" id="contact">
+<!-- CONTACT -->
+<section class="section section--navy" id="contact">
   <div class="container contact__inner">
-    <div class="contact__info">
-      <span class="section-tag section-tag--light">Get In Touch</span>
-      <h2>Ready to Streamline<br/>Your Operations?</h2>
-      <p>Book a free consultation or send us a message. We typically respond within one business day.</p>
+    <div class="contact__left">
+      <span class="sec-tag sec-tag--light">Get In Touch</span>
+      <h2>Let's Get Your<br/>Business Moving</h2>
+      <p>Whether you're launching a new agency or looking to streamline an existing one — we're ready to help. Book a free consultation today.</p>
       <div class="contact__methods">
-        <a class="contact-method" href="mailto:{{ .Site.Params.email }}">
-          <div class="contact-method__icon">✉</div>
-          <div>
-            <strong>Email Us</strong>
-            <span>{{ .Site.Params.email }}</span>
-          </div>
+        <a class="c-method" href="mailto:{{ .Site.Params.email }}">
+          <div class="c-method__icon">✉</div>
+          <div><strong>Email</strong><span>{{ .Site.Params.email }}</span></div>
         </a>
-        <a class="contact-method" href="tel:{{ .Site.Params.phone }}">
-          <div class="contact-method__icon">📞</div>
-          <div>
-            <strong>Call Us</strong>
-            <span>{{ .Site.Params.phone }}</span>
-          </div>
+        <a class="c-method" href="tel:{{ .Site.Params.phone }}">
+          <div class="c-method__icon">📞</div>
+          <div><strong>Phone</strong><span>{{ .Site.Params.phone }}</span></div>
         </a>
-        <a class="contact-method" href="https://wa.me/{{ .Site.Params.whatsapp }}" target="_blank" rel="noopener">
-          <div class="contact-method__icon">💬</div>
-          <div>
-            <strong>WhatsApp</strong>
-            <span>Chat with us directly</span>
-          </div>
+        <a class="c-method" href="https://wa.me/{{ .Site.Params.whatsapp }}" target="_blank" rel="noopener">
+          <div class="c-method__icon">💬</div>
+          <div><strong>WhatsApp</strong><span>Message us directly</span></div>
         </a>
       </div>
     </div>
-    <div class="contact__form-wrap">
-      <form class="contact-form" id="contactForm" action="#" method="POST">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="John Smith" required />
+    <div class="contact__right">
+      <form class="contact-form" id="contactForm" action="https://formsubmit.co/{{ .Site.Params.email }}" method="POST">
+        <input type="hidden" name="_subject" value="New Inquiry — Ali Healthcare Solutions" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://alihealthcaresolutions.com/#contact" />
+        <input type="text" name="_honey" style="display:none" />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="First Name" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="Last Name" placeholder="Smith" required />
+          </div>
         </div>
         <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="john@agency.com" required />
+          <label for="femail">Email Address</label>
+          <input type="email" id="femail" name="Email" placeholder="john@youragency.com" required />
         </div>
         <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" />
+          <label for="fphone">Phone Number</label>
+          <input type="tel" id="fphone" name="Phone" placeholder="+1 (555) 000-0000" required />
         </div>
         <div class="form-group">
-          <label for="service">Service Interested In</label>
-          <select id="service" name="service">
+          <label for="fservice">Service You Need</label>
+          <select id="fservice" name="Service">
             <option value="">Select a service...</option>
-            <option>Credentialing</option>
-            <option>Medicaid Enrollment</option>
-            <option>Provider Onboarding</option>
-            <option>Medical Billing</option>
-            <option>Virtual Assistant</option>
-            <option>Scheduling Support</option>
+            <option>NEMT Business Formation &amp; Licensing</option>
+            <option>Medicaid Provider Enrollment</option>
+            <option>Broker Registration</option>
+            <option>EVV Setup</option>
+            <option>Home Care Agency Setup</option>
+            <option>Billing Support</option>
+            <option>Virtual Assistant Services</option>
             <option>Multiple Services</option>
           </select>
         </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Tell us about your agency and what you need help with..."></textarea>
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="btn btn--primary btn--lg btn--full">Send Message</button>
-          <a href="https://calendly.com" target="_blank" class="btn btn--ghost btn--lg btn--full">Book a Call</a>
-        </div>
+        <button type="submit" class="btn btn--primary btn--lg btn--full" id="submitBtn">
+          Contact Us Today
+        </button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container footer__inner">
     <div class="footer__brand">
@@ -560,36 +264,35 @@
         <span class="nav__logo-mark">A</span>
         <span>Ali Healthcare <em>Solutions</em></span>
       </a>
-      <p>Supporting Home Care &amp; NEMT Providers<br/>Across the USA</p>
+      <p>NEMT &amp; Home Care Business Experts.<br/>Serving agencies across all 50 states.</p>
     </div>
-    <div class="footer__links">
+    <div class="footer__col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#services">Credentialing</a></li>
-        <li><a href="#services">Medicaid Enrollment</a></li>
-        <li><a href="#services">Medical Billing</a></li>
+        <li><a href="#services">NEMT Solutions</a></li>
+        <li><a href="#services">Home Care Solutions</a></li>
         <li><a href="#services">Virtual Assistant</a></li>
+        <li><a href="#services">Medicaid Enrollment</a></li>
       </ul>
     </div>
-    <div class="footer__links">
+    <div class="footer__col">
       <h4>Company</h4>
       <ul>
-        <li><a href="#about">About</a></li>
+        <li><a href="#who-we-serve">Who We Serve</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
-    <div class="footer__contact">
+    <div class="footer__col">
       <h4>Contact</h4>
       <p>{{ .Site.Params.email }}</p>
       <p>{{ .Site.Params.phone }}</p>
-      <a href="https://wa.me/{{ .Site.Params.whatsapp }}" class="btn btn--whatsapp" target="_blank">💬 WhatsApp Us</a>
+      <a href="https://wa.me/{{ .Site.Params.whatsapp }}" class="btn btn--whatsapp" target="_blank" rel="noopener">💬 WhatsApp Us</a>
     </div>
   </div>
   <div class="footer__bottom">
     <div class="container">
-      <p>&copy; {{ now.Year }} Ali Healthcare Solutions. All rights reserved. | HIPAA-Compliant Practice</p>
+      <p>&copy; {{ now.Year }} Ali Healthcare Solutions. All rights reserved. | HIPAA-Compliant Workflows</p>
     </div>
   </div>
 </footer>
