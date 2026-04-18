@@ -1,53 +1,50 @@
 /* =====================================================
-   MAIN.JS — Ali Healthcare Solutions
-   Fixes: mobile menu, burger animation, smooth scroll,
-   scroll-reveal, sticky nav, form feedback
+   MAIN.JS — Ali Healthcare Solutions — Premium v6
+   Features: mobile menu, smooth scroll, staggered
+   reveal, number counters, parallax hero, form UX
 ===================================================== */
-
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ── 1. STICKY NAV ── */
+  /* ─── 1. STICKY NAV ─── */
   const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    const curr = window.scrollY;
+    navbar.classList.toggle('scrolled', curr > 50);
+    // Hide nav on scroll down, show on scroll up
+    if (curr > 120 && curr > lastScroll) {
+      navbar.classList.add('nav--hidden');
+    } else {
+      navbar.classList.remove('nav--hidden');
+    }
+    lastScroll = curr;
   }, { passive: true });
 
-  /* ── 2. MOBILE MENU — FULLY FIXED ── */
-  const burger  = document.getElementById('burger');
+  /* ─── 2. MOBILE MENU ─── */
+  const burger = document.getElementById('burger');
   const mobileMenu = document.getElementById('mobileMenu');
-
   if (burger && mobileMenu) {
-    burger.addEventListener('click', function (e) {
+    burger.addEventListener('click', e => {
       e.stopPropagation();
-      const isOpen = mobileMenu.classList.toggle('open');
-      burger.classList.toggle('active', isOpen);
-      // Prevent body scroll when menu is open
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      const open = mobileMenu.classList.toggle('open');
+      burger.classList.toggle('active', open);
+      document.body.style.overflow = open ? 'hidden' : '';
     });
-
-    // Close when any link inside menu is clicked
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        burger.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    });
-
-    // Close when clicking outside the menu
-    document.addEventListener('click', function (e) {
+    mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      burger.classList.remove('active');
+      document.body.style.overflow = '';
+    }));
+    document.addEventListener('click', e => {
       if (mobileMenu.classList.contains('open') &&
-          !mobileMenu.contains(e.target) &&
-          !burger.contains(e.target)) {
+          !mobileMenu.contains(e.target) && !burger.contains(e.target)) {
         mobileMenu.classList.remove('open');
         burger.classList.remove('active');
         document.body.style.overflow = '';
       }
     });
-
-    // Close on Escape key
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
         mobileMenu.classList.remove('open');
         burger.classList.remove('active');
         document.body.style.overflow = '';
@@ -55,57 +52,117 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ── 3. SMOOTH SCROLL ── */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+  /* ─── 3. SMOOTH SCROLL ─── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
       if (href === '#') return;
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        const navH = navbar ? navbar.offsetHeight : 70;
-        const top = target.getBoundingClientRect().top + window.scrollY - navH;
+        const top = target.getBoundingClientRect().top + window.scrollY - 70;
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
 
-  /* ── 4. SCROLL REVEAL ── */
-  const revealEls = document.querySelectorAll(
-    '.serve-card, .svc-block, .reviews-soon, .c-method, .sec-hd'
-  );
+  /* ─── 4. STAGGERED SCROLL REVEAL ─── */
+  const revealGroups = [
+    { selector: '.serve-card',   delay: 0.08 },
+    { selector: '.svc-block',    delay: 0.10 },
+    { selector: '.c-method',     delay: 0.10 },
+    { selector: '.reviews-soon', delay: 0 },
+    { selector: '.sec-hd',       delay: 0 },
+    { selector: '.hero__tag, .hero__title, .hero__sub, .hero__desc, .hero__btns, .hero__chips', delay: 0 },
+  ];
 
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-    revealEls.forEach((el, i) => {
-      el.classList.add('reveal-ready');
-      el.style.transitionDelay = `${i * 0.06}s`;
-      observer.observe(el);
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
     });
-  } else {
-    // Fallback for older browsers
-    revealEls.forEach(el => el.classList.add('revealed'));
+  }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
+
+  revealGroups.forEach(({ selector, delay }) => {
+    document.querySelectorAll(selector).forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = `${i * delay}s`;
+      io.observe(el);
+    });
+  });
+
+  /* ─── 5. HERO PARALLAX (subtle) ─── */
+  const heroInner = document.querySelector('.hero__inner');
+  const heroShapes = document.querySelectorAll('.hero__shape--1, .hero__shape--2');
+  if (heroInner) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroInner.style.transform = `translateY(${y * 0.18}px)`;
+        heroShapes.forEach((s, i) => {
+          s.style.transform = `translateY(${y * (i === 0 ? 0.08 : -0.06)}px)`;
+        });
+      }
+    }, { passive: true });
   }
 
-  /* ── 5. FORM FEEDBACK ── */
+  /* ─── 6. ACTIVE NAV LINK on scroll ─── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav__links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('nav__link--active', a.getAttribute('href') === `#${current}`);
+    });
+  }, { passive: true });
+
+  /* ─── 7. FORM UX ─── */
   const form = document.getElementById('contactForm');
   if (form) {
+    // Float label effect
+    form.querySelectorAll('input, select').forEach(field => {
+      field.addEventListener('focus', () => field.parentElement.classList.add('focused'));
+      field.addEventListener('blur',  () => field.parentElement.classList.remove('focused'));
+    });
     form.addEventListener('submit', function () {
       const btn = document.getElementById('submitBtn');
       if (btn) {
-        btn.textContent = 'Sending…';
+        btn.innerHTML = '<span class="btn-spinner"></span> Sending…';
         btn.disabled = true;
-        btn.style.opacity = '0.75';
       }
     });
   }
+
+  /* ─── 8. BUTTON RIPPLE EFFECT ─── */
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      const ripple = document.createElement('span');
+      ripple.classList.add('ripple');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.cssText = `
+        width:${size}px; height:${size}px;
+        top:${e.clientY - rect.top - size/2}px;
+        left:${e.clientX - rect.left - size/2}px;
+      `;
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+
+  /* ─── 9. SERVICE ITEM HOVER SHIMMER ─── */
+  document.querySelectorAll('.svc-item').forEach(item => {
+    item.addEventListener('mouseenter', function () {
+      this.classList.add('svc-item--hovered');
+    });
+    item.addEventListener('mouseleave', function () {
+      this.classList.remove('svc-item--hovered');
+    });
+  });
 
 });
