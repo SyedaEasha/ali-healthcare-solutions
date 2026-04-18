@@ -1,54 +1,111 @@
-// NAV SCROLL
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 30);
-}, { passive: true });
+/* =====================================================
+   MAIN.JS — Ali Healthcare Solutions
+   Fixes: mobile menu, burger animation, smooth scroll,
+   scroll-reveal, sticky nav, form feedback
+===================================================== */
 
-// MOBILE MENU
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('mobileMenu');
-burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+document.addEventListener('DOMContentLoaded', function () {
 
-// SMOOTH SCROLL
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 66, behavior: 'smooth' });
-    }
+  /* ── 1. STICKY NAV ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  /* ── 2. MOBILE MENU — FULLY FIXED ── */
+  const burger  = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const isOpen = mobileMenu.classList.toggle('open');
+      burger.classList.toggle('active', isOpen);
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close when any link inside menu is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        burger.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close when clicking outside the menu
+    document.addEventListener('click', function (e) {
+      if (mobileMenu.classList.contains('open') &&
+          !mobileMenu.contains(e.target) &&
+          !burger.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        burger.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        mobileMenu.classList.remove('open');
+        burger.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  /* ── 3. SMOOTH SCROLL ── */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const navH = navbar ? navbar.offsetHeight : 70;
+        const top = target.getBoundingClientRect().top + window.scrollY - navH;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
   });
+
+  /* ── 4. SCROLL REVEAL ── */
+  const revealEls = document.querySelectorAll(
+    '.serve-card, .svc-block, .reviews-soon, .c-method, .sec-hd'
+  );
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    revealEls.forEach((el, i) => {
+      el.classList.add('reveal-ready');
+      el.style.transitionDelay = `${i * 0.06}s`;
+      observer.observe(el);
+    });
+  } else {
+    // Fallback for older browsers
+    revealEls.forEach(el => el.classList.add('revealed'));
+  }
+
+  /* ── 5. FORM FEEDBACK ── */
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function () {
+      const btn = document.getElementById('submitBtn');
+      if (btn) {
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        btn.style.opacity = '0.75';
+      }
+    });
+  }
+
 });
-
-// SCROLL REVEAL
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-
-document.querySelectorAll('.serve-card, .svc-block, .reviews-soon, .c-method').forEach((el, i) => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = `opacity 0.45s ${i * 0.07}s ease, transform 0.45s ${i * 0.07}s ease`;
-  revealObserver.observe(el);
-});
-
-// FORM — show a thank-you message on submit
-// (FormSubmit.co handles the actual email sending via action= on the form)
-// This just gives a quick visual response before redirect
-const form = document.getElementById('contactForm');
-if (form) {
-  form.addEventListener('submit', function() {
-    const btn = document.getElementById('submitBtn');
-    if (btn) {
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-    }
-  });
-}
